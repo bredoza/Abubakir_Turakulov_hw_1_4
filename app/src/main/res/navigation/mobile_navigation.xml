@@ -22,4 +22,17 @@
         android:name="com.example.taskapp.ui.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
+
+    <fragment
+        android:id="@+id/taskFragment"
+        android:name="com.example.taskapp.ui.task.TaskFragment"
+        android:label="@string/title_task"
+        tools:layout="@layout/fragment_task" />
+
+    <fragment
+        android:id="@+id/onBoardingFragment"
+        android:name="com.example.taskapp.ui.onboarding.OnBoardingFragment"
+        android:label="@string/Onboarding"
+        tools:layout="@layout/fragment_on_boarding" />
+
 </navigation>
