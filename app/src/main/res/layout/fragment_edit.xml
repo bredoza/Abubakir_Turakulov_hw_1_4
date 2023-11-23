@@ -6,16 +6,16 @@
     android:layout_height="match_parent"
     android:padding="16dp"
     tools:background="@color/dark"
-    tools:context=".ui.task.TaskFragment">
+    tools:context=".ui.edit.EditFragment">
 
     <EditText
-        android:id="@+id/et_title"
+        android:id="@+id/et_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/item_bg_default"
-        android:hint="@string/title"
-        android:maxLength="200"
-        android:maxLines="3"
+        android:hint="@string/your_name"
+        android:maxLength="22"
+        android:maxLines="1"
         android:padding="16dp"
         android:textColor="@color/dark_white"
         android:textColorHint="@color/dark_white"
@@ -29,15 +29,15 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:background="@drawable/item_bg_default"
-        android:hint="@string/description"
-        android:maxLength="3000"
-        android:maxLines="22"
+        android:hint="@string/your_description"
+        android:maxLength="200"
+        android:maxLines="6"
         android:padding="16dp"
         android:textColor="@color/dark_white"
         android:textColorHint="@color/dark_white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/et_title" />
+        app:layout_constraintTop_toBottomOf="@id/et_name" />
 
     <Button
         android:id="@+id/btn_save"

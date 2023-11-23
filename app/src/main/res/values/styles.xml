@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="SplashScreenTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="android:src">@drawable/ic_ss_task_app</item>
-        <item name="android:statusBarColor">@color/dark</item>
+
+    <style name="ImageViewCircle">
+        <item name="cornerSize">50%</item>
     </style>
+
+    <style name="ImageViewCorner">
+        <item name="cornerSize">16dp</item>
+    </style>
+
 </resources>

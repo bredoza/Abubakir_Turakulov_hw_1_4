@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.taskapp.R
+import com.example.taskapp.data.local.Pref
 import com.example.taskapp.databinding.FragmentOnBoardingBinding
 import com.example.taskapp.ui.onboarding.adapter.OnBoardingAdapter
 
@@ -14,10 +15,12 @@ class OnBoardingFragment : Fragment() {
 
     private val adapter = OnBoardingAdapter(this::onClick, this::onNext)
     private lateinit var binding: FragmentOnBoardingBinding
+    private val pref: Pref by lazy {
+        Pref(requireContext())
+    }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         binding = FragmentOnBoardingBinding.inflate(inflater, container, false)
         return binding.root
@@ -32,6 +35,7 @@ class OnBoardingFragment : Fragment() {
 
     private fun onClick() {
         findNavController().navigate(R.id.navigation_home)
+        pref.onBoardingHide()
     }
 
     private fun onNext(position: Int) {

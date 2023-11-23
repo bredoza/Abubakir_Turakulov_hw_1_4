@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     android:layout_marginHorizontal="16dp"
     android:layout_marginTop="16dp"
-    android:background="@drawable/item_bg_home_task"
+    android:background="@drawable/item_bg_default"
     android:minHeight="64dp"
     android:orientation="vertical"
     android:padding="16dp">

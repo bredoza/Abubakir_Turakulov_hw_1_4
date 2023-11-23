@@ -24,6 +24,12 @@
         tools:layout="@layout/fragment_notifications" />
 
     <fragment
+        android:id="@+id/navigation_profile"
+        android:name="com.example.taskapp.ui.profile.ProfileFragment"
+        android:label="@string/profile"
+        tools:layout="@layout/fragment_profile" />
+
+    <fragment
         android:id="@+id/taskFragment"
         android:name="com.example.taskapp.ui.task.TaskFragment"
         android:label="@string/title_task"
@@ -34,5 +40,11 @@
         android:name="com.example.taskapp.ui.onboarding.OnBoardingFragment"
         android:label="@string/Onboarding"
         tools:layout="@layout/fragment_on_boarding" />
+
+    <fragment
+        android:id="@+id/editFragment"
+        android:name="com.example.taskapp.ui.edit.EditFragment"
+        android:label="@string/edit_fragment"
+        tools:layout="@layout/fragment_edit" />
 
 </navigation>
