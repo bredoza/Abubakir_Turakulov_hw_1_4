@@ -1,24 +1,23 @@
 package com.example.taskapp.ui.home
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.setFragmentResultListener
 import androidx.navigation.fragment.findNavController
+import com.example.taskapp.App
 import com.example.taskapp.R
 import com.example.taskapp.databinding.FragmentHomeBinding
 import com.example.taskapp.model.Task
 import com.example.taskapp.ui.home.adapter.TaskAdapter
-import com.example.taskapp.ui.task.TaskFragment.Companion.TASK_KEY
-import com.example.taskapp.ui.task.TaskFragment.Companion.TASK_RESULT_KEY
 
 class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
-    private val adapter = TaskAdapter()
+    private lateinit var adapter: TaskAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -29,15 +28,34 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.rvHomeList.adapter = adapter
-        setFragmentResultListener(TASK_RESULT_KEY) { _, bundle ->
-            val data = bundle.getSerializable(TASK_KEY) as Task
-            adapter.addTask(data)
+
+        adapter = TaskAdapter { task ->
+            alertDialog(task)
         }
+
+        binding.rvHomeList.adapter = adapter
+
+        val data = App.db.taskDao().getAll()
+        adapter.addTasks(data)
 
         binding.fabHome.setOnClickListener {
             findNavController().navigate(R.id.taskFragment)
         }
+    }
+
+    private fun alertDialog(task: Task) {
+        val alertDialog = AlertDialog.Builder(requireContext()).setTitle("Удалить")
+            .setMessage("Вы действительно хотите удалить?").setPositiveButton("Да") { _, _ ->
+                deleteTask(task)
+            }.setNegativeButton("Нет", null).create()
+
+        alertDialog.show()
+    }
+
+    private fun deleteTask(task: Task) {
+        App.db.taskDao().delete(task)
+        val data = App.db.taskDao().getAll()
+        adapter.addTasks(data)
     }
 
     override fun onDestroyView() {

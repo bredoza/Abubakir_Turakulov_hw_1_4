@@ -1,8 +1,6 @@
 package com.example.taskapp.ui.edit
 
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -29,49 +27,28 @@ class EditFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        textCheck()
-
         binding.btnSave.setOnClickListener {
-            val name = binding.etName.text.toString()
-            val description = binding.etDescription.text.toString()
-
-            val data = Profile(
-                name = name, description = description
-            )
-
-            val pref = Pref(requireContext())
-            pref.saveProfile(name, description)
-
-            setFragmentResult(PROFILE_RESULT_KEY, bundleOf(PROFILE_KEY to data))
-            findNavController().navigateUp()
-        }
-    }
-
-    private fun textCheck() {
-        val textCheck = object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                updateSaveButtonVisibility()
+            if (binding.etName.text.isNotEmpty()) {
+                save()
+            } else {
+                binding.etName.error = "Заполните это поле"
             }
-
-            override fun afterTextChanged(s: Editable?) {}
-        }
-
-        with(binding) {
-            etName.addTextChangedListener(textCheck)
-            etDescription.addTextChangedListener(textCheck)
         }
     }
 
-    private fun updateSaveButtonVisibility() {
-        val nameLength = binding.etName.text.length
-        val descriptionLength = binding.etDescription.text.length
+    private fun save() {
+        val name = binding.etName.text.toString()
+        val description = binding.etDescription.text.toString()
 
-        binding.btnSave.visibility = when {
-            nameLength > 0 -> View.VISIBLE
-            nameLength == 0 && descriptionLength > 0 -> View.GONE
-            else -> View.GONE
-        }
+        val data = Profile(
+            name = name, description = description
+        )
+
+        val pref = Pref(requireContext())
+        pref.saveProfile(name, description)
+
+        setFragmentResult(PROFILE_RESULT_KEY, bundleOf(PROFILE_KEY to data))
+        findNavController().navigateUp()
     }
 
     companion object {

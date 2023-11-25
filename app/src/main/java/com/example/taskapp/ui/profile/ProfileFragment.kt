@@ -13,10 +13,15 @@ import com.example.taskapp.databinding.FragmentProfileBinding
 import com.example.taskapp.model.Profile
 import com.example.taskapp.ui.edit.EditFragment
 
+@Suppress("DEPRECATION")
 class ProfileFragment : Fragment() {
 
     private var _binding: FragmentProfileBinding? = null
     private val binding get() = _binding!!
+
+    private val pref: Pref by lazy {
+        Pref(requireContext())
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -33,7 +38,6 @@ class ProfileFragment : Fragment() {
             updateProfileData(data)
         }
 
-        val pref = Pref(requireContext())
         val savedProfile = pref.getProfile()
 
         if (savedProfile.name!!.isNotEmpty()) {

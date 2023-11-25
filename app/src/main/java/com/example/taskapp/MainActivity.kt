@@ -1,6 +1,7 @@
 package com.example.taskapp
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.navigation.findNavController
@@ -24,12 +25,14 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val navView: BottomNavigationView = binding.navView
+        val topBar = findViewById<View>(R.id.top_bar)
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
 
         if (!pref.onHide()) navController.navigate(R.id.onBoardingFragment)
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
             navView.isVisible = destination.id != R.id.onBoardingFragment
+            topBar?.visibility = if (destination.id != R.id.onBoardingFragment) View.VISIBLE else View.GONE
         }
         navView.setupWithNavController(navController)
     }
