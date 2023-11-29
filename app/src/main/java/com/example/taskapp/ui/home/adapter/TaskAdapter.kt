@@ -1,8 +1,12 @@
 package com.example.taskapp.ui.home.adapter
 
+import android.annotation.SuppressLint
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.example.taskapp.R
 import com.example.taskapp.databinding.ItemTaskBinding
 import com.example.taskapp.model.Task
 
@@ -11,6 +15,7 @@ class TaskAdapter(private val onLongClickListener: (Task) -> Unit) :
 
     private val list = arrayListOf<Task>()
 
+    @SuppressLint("NotifyDataSetChanged")
     fun addTasks(tasks: List<Task>) {
         list.clear()
         list.addAll(tasks)
@@ -31,9 +36,12 @@ class TaskAdapter(private val onLongClickListener: (Task) -> Unit) :
         val task = list[position]
         holder.bind(task)
 
-        holder.itemView.setOnLongClickListener {
-            onLongClickListener.invoke(task)
-            true
+        holder.itemView.setOnClickListener {
+            val bundle = Bundle().apply {
+                putSerializable("task", task)
+            }
+
+            it.findNavController().navigate(R.id.taskFragment, bundle)
         }
     }
 
@@ -42,10 +50,14 @@ class TaskAdapter(private val onLongClickListener: (Task) -> Unit) :
 
         fun bind(task: Task) {
             binding.tvHomeTitle.text = task.title
-            if (task.description!!.isNotEmpty()) {
+            if (task.description?.isNotEmpty() == true) {
                 binding.tvHomeDescription.text = task.description
             } else {
                 binding.tvHomeDescription.text = "Пусто"
+            }
+            itemView.setOnLongClickListener {
+                onLongClickListener.invoke(task)
+                true
             }
         }
     }

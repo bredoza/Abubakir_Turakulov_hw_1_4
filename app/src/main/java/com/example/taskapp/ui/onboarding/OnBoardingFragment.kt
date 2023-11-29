@@ -9,12 +9,13 @@ import androidx.navigation.fragment.findNavController
 import com.example.taskapp.R
 import com.example.taskapp.data.local.Pref
 import com.example.taskapp.databinding.FragmentOnBoardingBinding
-import com.example.taskapp.ui.onboarding.adapter.OnBoardingAdapter
+import com.example.taskapp.ui.onboarding.adapter.OnboardingAdapter
 
-class OnBoardingFragment : Fragment() {
+class OnboardingFragment : Fragment() {
 
-    private val adapter = OnBoardingAdapter(this::onClick, this::onNext)
+    private val adapter = OnboardingAdapter(this::onClick, this::onNext)
     private lateinit var binding: FragmentOnBoardingBinding
+
     private val pref: Pref by lazy {
         Pref(requireContext())
     }
@@ -28,14 +29,13 @@ class OnBoardingFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val viewPager2 = binding.vpOnboarding
-        viewPager2.adapter = adapter
-        binding.onbDots.attachTo(viewPager2)
+        binding.vpOnboarding.adapter = adapter
+        binding.onbDots.attachTo(binding.vpOnboarding)
     }
 
     private fun onClick() {
-        findNavController().navigate(R.id.navigation_home)
         pref.onBoardingHide()
+        findNavController().navigate(R.id.navigation_home)
     }
 
     private fun onNext(position: Int) {

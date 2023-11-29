@@ -39,7 +39,7 @@
     <fragment
         android:id="@+id/navigation_profile"
         android:name="com.example.taskapp.ui.profile.ProfileFragment"
-        android:label="@string/profile"
+        android:label="@string/title_profile"
         tools:layout="@layout/fragment_profile">
         <action
             android:id="@+id/action_navigation_profile_to_editFragment"
@@ -54,8 +54,8 @@
 
     <fragment
         android:id="@+id/onBoardingFragment"
-        android:name="com.example.taskapp.ui.onboarding.OnBoardingFragment"
-        android:label="@string/Onboarding"
+        android:name="com.example.taskapp.ui.onboarding.OnboardingFragment"
+        android:label="@string/title_onboarding"
         tools:layout="@layout/fragment_on_boarding">
         <action
             android:id="@+id/action_onBoardingFragment_to_navigation_home"
@@ -64,8 +64,8 @@
 
     <fragment
         android:id="@+id/editFragment"
-        android:name="com.example.taskapp.ui.edit.EditFragment"
-        android:label="@string/edit_fragment"
+        android:name="com.example.taskapp.ui.profile.ProfileEditFragment"
+        android:label="@string/title_profile_edit"
         tools:layout="@layout/fragment_edit" />
 
 </navigation>

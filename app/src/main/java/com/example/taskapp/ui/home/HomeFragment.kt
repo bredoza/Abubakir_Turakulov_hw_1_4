@@ -28,33 +28,31 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        adapter = TaskAdapter { task ->
-            alertDialog(task)
-        }
-
+        adapter = TaskAdapter(this::initAlertDialog)
         binding.rvHomeList.adapter = adapter
-
-        val data = App.db.taskDao().getAll()
-        adapter.addTasks(data)
-
+        getTask()
         binding.fabHome.setOnClickListener {
             findNavController().navigate(R.id.taskFragment)
         }
     }
 
-    private fun alertDialog(task: Task) {
-        val alertDialog = AlertDialog.Builder(requireContext()).setTitle("Удалить")
-            .setMessage("Вы действительно хотите удалить?").setPositiveButton("Да") { _, _ ->
+    private fun initAlertDialog(task: Task) {
+        val alertDialog = AlertDialog.Builder(requireContext())
+            .setTitle(getString(R.string.delete_title))
+            .setMessage(getString(R.string.delete_message))
+            .setPositiveButton(getString(R.string.delete_pos)) { _, _ ->
                 deleteTask(task)
-            }.setNegativeButton("Нет", null).create()
-
+            }.setNegativeButton(getString(R.string.delete_neg), null).create()
         alertDialog.show()
     }
 
     private fun deleteTask(task: Task) {
         App.db.taskDao().delete(task)
-        val data = App.db.taskDao().getAll()
+        getTask()
+    }
+
+    private fun getTask() {
+        val data = App.db.taskDao().getTask()
         adapter.addTasks(data)
     }
 

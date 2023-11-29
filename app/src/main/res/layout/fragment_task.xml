@@ -17,7 +17,7 @@
         android:maxLength="200"
         android:maxLines="3"
         android:padding="16dp"
-        android:textColor="@color/dark_white"
+        android:textColor="@color/white"
         android:textColorHint="@color/dark_white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -33,7 +33,7 @@
         android:maxLength="3000"
         android:maxLines="22"
         android:padding="16dp"
-        android:textColor="@color/dark_white"
+        android:textColor="@color/white"
         android:textColorHint="@color/dark_white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -45,10 +45,12 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:background="@drawable/item_bg_default"
-        android:text="@string/save"
+        android:gravity="center"
         android:textColor="@color/white"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="@string/save" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

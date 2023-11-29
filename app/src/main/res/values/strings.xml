@@ -1,19 +1,30 @@
 <resources>
     <string name="app_name">Taskes</string>
-    <string name="title">Title</string>
-    <string name="description">Description</string>
+
+    <string name="title_onboarding">Onboarding</string>
     <string name="title_home">Home</string>
     <string name="title_task">Task</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
-    <string name="save">Save</string>
-    <string name="Onboarding">title_onboarding</string>
-    <string name="skip">Skip</string>
-    <string name="get_started">Get started</string>
-    <string name="next">Next</string>
-    <string name="profile">Profile</string>
+    <string name="title_profile">Profile</string>
+    <string name="title_profile_edit">Edit profile</string>
+
+    <string name="title">Title</string>
+    <string name="description">Description</string>
     <string name="your_name">Your name</string>
-    <string name="edit_profile">Edit profile</string>
-    <string name="edit_fragment">Edit Fragment</string>
     <string name="your_description">Your description</string>
+
+    <string name="fill_this_field">Заполните это поле</string>
+
+    <string name="save">Save</string>
+    <string name="update">Update</string>
+    <string name="skip">Skip</string>
+    <string name="next">Next</string>
+    <string name="get_started">Get started</string>
+    <string name="edit_profile">Edit profile</string>
+
+    <string name="delete_title">Удалить</string>
+    <string name="delete_message">Вы действительно хотите удалить?</string>
+    <string name="delete_pos">Да</string>
+    <string name="delete_neg">Нет</string>
 </resources>
