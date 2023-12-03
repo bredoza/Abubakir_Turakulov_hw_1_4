@@ -19,7 +19,7 @@
         android:textColor="@color/white"
         android:textSize="14sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/iv_onboarding"
+        app:layout_constraintBottom_toTopOf="@+id/animationView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -35,20 +35,22 @@
         android:textColor="@color/white"
         android:textSize="14sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/iv_onboarding"
+        app:layout_constraintBottom_toTopOf="@+id/animationView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/iv_onboarding"
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animationView"
         android:layout_width="300dp"
         android:layout_height="300dp"
         android:layout_marginTop="96dp"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:shapeAppearanceOverlay="@style/ImageViewCorner"
-        tools:background="@color/dark_gray" />
+        tools:background="@drawable/item_bg_default"/>
 
     <TextView
         android:id="@+id/tv_onboarding_title"
@@ -60,7 +62,7 @@
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/iv_onboarding"
+        app:layout_constraintTop_toBottomOf="@id/animationView"
         tools:text="@string/title" />
 
     <TextView

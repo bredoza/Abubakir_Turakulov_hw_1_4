@@ -59,7 +59,12 @@ dependencies {
 
     def room_version = "2.6.0"
 
+    //noinspection GradleDependency
     implementation "androidx.room:room-runtime:$room_version"
     annotationProcessor "androidx.room:room-compiler:$room_version"
+    //noinspection KaptUsageInsteadOfKsp
     kapt "androidx.room:room-compiler:$room_version"
+
+    def lottieVersion = "3.4.0"
+    implementation "com.airbnb.android:lottie:$lottieVersion"
 }

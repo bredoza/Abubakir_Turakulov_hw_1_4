@@ -35,12 +35,16 @@ class TaskAdapter(private val onLongClickListener: (Task) -> Unit) :
     override fun onBindViewHolder(holder: TaskViewHolder, position: Int) {
         val task = list[position]
         holder.bind(task)
+        onBind(holder, task)
+    }
 
+    private fun onBind(
+        holder: TaskViewHolder, task: Task
+    ) {
         holder.itemView.setOnClickListener {
             val bundle = Bundle().apply {
                 putSerializable("task", task)
             }
-
             it.findNavController().navigate(R.id.taskFragment, bundle)
         }
     }

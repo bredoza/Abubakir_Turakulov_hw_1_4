@@ -26,7 +26,6 @@ class TaskFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         editingTask = arguments?.getSerializable("task") as? Task
 
         if (editingTask != null) {
@@ -36,7 +35,6 @@ class TaskFragment : Fragment() {
         } else {
             binding.btnSave.text = getString(R.string.save)
         }
-
         binding.btnSave.setOnClickListener { checkTask() }
     }
 
@@ -55,8 +53,7 @@ class TaskFragment : Fragment() {
     private fun update() {
         editingTask?.title = binding.etTitle.text.toString()
         editingTask?.description = binding.etDescription.text.toString()
-
-        App.db.taskDao().update(editingTask!!)
+        editingTask?.let { App.db.taskDao().update(it) }
         findNavController().navigateUp()
     }
 
