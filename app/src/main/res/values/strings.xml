@@ -27,4 +27,9 @@
     <string name="delete_message">Вы действительно хотите удалить?</string>
     <string name="delete_pos">Да</string>
     <string name="delete_neg">Нет</string>
+
+    <string name="default_start_number">+996</string>
+    <string name="send">Send</string>
+    <string name="confirm">Confirm</string>
+    <string name="code">Code</string>
 </resources>

@@ -10,6 +10,7 @@ import com.example.taskapp.R
 import com.example.taskapp.data.local.Pref
 import com.example.taskapp.databinding.FragmentOnBoardingBinding
 import com.example.taskapp.ui.onboarding.adapter.OnboardingAdapter
+import com.google.firebase.auth.FirebaseAuth
 
 class OnboardingFragment : Fragment() {
 
@@ -35,7 +36,11 @@ class OnboardingFragment : Fragment() {
 
     private fun onClick() {
         pref.onBoardingHide()
-        findNavController().navigate(R.id.navigation_home)
+        if (FirebaseAuth.getInstance().currentUser?.uid == null) {
+            findNavController().navigate(R.id.phoneFragment)
+        } else {
+            findNavController().navigate(R.id.navigation_home)
+        }
     }
 
     private fun onNext(position: Int) {
