@@ -8,14 +8,14 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.taskapp.R
 import com.example.taskapp.data.local.Pref
-import com.example.taskapp.databinding.FragmentOnBoardingBinding
+import com.example.taskapp.databinding.FragmentOnboardingBinding
 import com.example.taskapp.ui.onboarding.adapter.OnboardingAdapter
 import com.google.firebase.auth.FirebaseAuth
 
 class OnboardingFragment : Fragment() {
 
     private val adapter = OnboardingAdapter(this::onClick, this::onNext)
-    private lateinit var binding: FragmentOnBoardingBinding
+    private lateinit var binding: FragmentOnboardingBinding
 
     private val pref: Pref by lazy {
         Pref(requireContext())
@@ -24,7 +24,7 @@ class OnboardingFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
-        binding = FragmentOnBoardingBinding.inflate(inflater, container, false)
+        binding = FragmentOnboardingBinding.inflate(inflater, container, false)
         return binding.root
     }
 

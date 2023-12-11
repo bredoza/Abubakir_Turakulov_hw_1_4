@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         val topBar = binding.topBar
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
 
-        if (!pref.onHide()) {
+        if (!pref.isOnboardingHide()) {
             navController.navigate(R.id.onBoardingFragment)
         } else {
             if (FirebaseAuth.getInstance().currentUser?.uid == null) {

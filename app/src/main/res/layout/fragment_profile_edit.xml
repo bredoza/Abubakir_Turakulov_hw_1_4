@@ -8,10 +8,25 @@
     tools:background="@color/dark"
     tools:context=".ui.profile.ProfileEditFragment">
 
+    <Button
+        android:id="@+id/btn_edit_image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/item_bg_default"
+        android:padding="16dp"
+        android:text="@string/change_profile_image"
+        android:textColor="@color/dark_white"
+        android:textSize="18sp"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <EditText
         android:id="@+id/et_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:background="@drawable/item_bg_default"
         android:hint="@string/your_name"
         android:maxLength="22"
@@ -21,7 +36,7 @@
         android:textColorHint="@color/dark_white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/btn_edit_image" />
 
     <EditText
         android:id="@+id/et_description"

@@ -13,4 +13,5 @@ interface ProfileDao {
 
     @Query("SELECT * FROM profile ORDER BY uid DESC LIMIT 1")
     fun getProfile(): Profile?
+
 }

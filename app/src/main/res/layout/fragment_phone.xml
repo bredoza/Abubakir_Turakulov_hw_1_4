@@ -1,36 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
     android:orientation="vertical"
     android:padding="16dp"
     tools:background="@color/dark"
     tools:context=".ui.auth.phone.PhoneFragment">
 
-    <EditText
-        android:id="@+id/et_phone"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_background"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="12dp"
+        android:layout_marginBottom="16dp"
         android:background="@drawable/item_bg_default"
-        android:hint="@string/default_start_number"
-        android:maxLength="13"
-        android:maxLines="1"
-        android:padding="16dp"
-        android:textColor="@color/white"
-        android:textColorHint="@color/dark_white" />
+        android:paddingHorizontal="8dp"
+        app:prefixText="@string/default_start_number"
+        app:prefixTextColor="@color/dark_white">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLength="9"
+            android:maxLines="1"
+            android:textColor="@color/white"
+            android:textColorHint="@color/dark_white"
+            android:textSize="14sp"
+            tools:text="000000000" />
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/btn_send"
-        android:layout_width="128dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_gravity="center"
         android:background="@drawable/item_bg_default"
-        android:gravity="center"
         android:text="@string/send"
         android:textColor="@color/white"
-        android:textSize="14sp" />
+        android:textSize="16sp" />
 
 </LinearLayout>

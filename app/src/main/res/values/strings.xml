@@ -32,4 +32,7 @@
     <string name="send">Send</string>
     <string name="confirm">Confirm</string>
     <string name="code">Code</string>
+    <string name="name">Name</string>
+    <string name="author">Author</string>
+    <string name="change_profile_image">Change profile image</string>
 </resources>

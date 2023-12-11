@@ -6,7 +6,7 @@ class Pref(context: Context) {
 
     private val pref = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE)
 
-    fun onHide(): Boolean {
+    fun isOnboardingHide(): Boolean {
         return pref.getBoolean(HIDE_KEY, false)
     }
 

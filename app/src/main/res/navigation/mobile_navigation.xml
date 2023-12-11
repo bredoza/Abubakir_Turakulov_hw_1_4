@@ -39,7 +39,7 @@
         android:id="@+id/onBoardingFragment"
         android:name="com.example.taskapp.ui.onboarding.OnboardingFragment"
         android:label="@string/title_onboarding"
-        tools:layout="@layout/fragment_on_boarding" />
+        tools:layout="@layout/fragment_onboarding" />
 
     <fragment
         android:id="@+id/editFragment"

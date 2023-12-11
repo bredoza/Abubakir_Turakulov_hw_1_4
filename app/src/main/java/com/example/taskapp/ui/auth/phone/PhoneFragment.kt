@@ -48,21 +48,13 @@ class PhoneFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.etPhone.setText(getString(R.string.default_start_number))
         binding.etPhone.inputType = InputType.TYPE_CLASS_NUMBER
-        binding.etPhone.filters = arrayOf(object : InputFilter {
-            override fun filter(
-                source: CharSequence?, start: Int, end: Int, dest: Spanned?, dstart: Int, dend: Int
-            ): CharSequence? {
-                return if (dstart < 4) dest?.subSequence(dstart, dend) else source?.subSequence(
-                    start, end
-                )
-            }
-        })
 
         binding.btnSend.setOnClickListener {
+            val number =
+                "${binding.tilBackground.prefixText.toString()}${binding.etPhone.text.toString()}"
             val options = PhoneAuthOptions.newBuilder(FirebaseAuth.getInstance())
-                .setPhoneNumber(binding.etPhone.text.toString()).setTimeout(60L, TimeUnit.SECONDS)
+                .setPhoneNumber(number).setTimeout(60L, TimeUnit.SECONDS)
                 .setActivity(requireActivity()).setCallbacks(callbacks).build()
             PhoneAuthProvider.verifyPhoneNumber(options)
         }
